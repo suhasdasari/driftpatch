@@ -1,0 +1,16 @@
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;background:#0b0f17;color:#e6e9ef}
+a{color:#7cc4ff}.hero{padding:24px 6vw 56px;background:radial-gradient(circle at 20% 0,#1d3b6b,#0b0f17 60%)}
+nav{display:flex;justify-content:space-between;margin-bottom:48px}nav a{margin-left:18px;text-decoration:none;color:#c9d3e3}
+h1{font-size:clamp(36px,6vw,64px);margin:0 0 12px}.lead{font-size:20px;max-width:720px;color:#c9d3e3}
+.btn{display:inline-block;background:#3b82f6;color:#fff;border:0;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;border:1px solid #3b82f6}.btn.small{padding:4px 10px;font-size:13px;margin-left:10px}
+main{padding:0 6vw}section{margin:48px 0}.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.grid3 div,.pane,.card{background:#121826;border:1px solid #1f2a3d;border-radius:12px;padding:18px}
+.tabs button{background:#121826;color:#c9d3e3;border:1px solid #1f2a3d;padding:8px 16px;border-radius:8px 8px 0 0;cursor:pointer}.tabs .on{background:#1f2a3d;color:#fff}
+input,textarea{width:100%;background:#0b0f17;color:#e6e9ef;border:1px solid #2a3750;border-radius:8px;padding:10px;font:14px ui-monospace,monospace;margin-bottom:10px}
+.hidden{display:none}small{display:block;color:#8a96ab;margin-top:8px}#status{margin:14px 0;color:#9fb3d1}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid #1f2a3d;padding:6px 8px;text-align:left;vertical-align:top}
+td code{color:#ffd28a;word-break:break-all}.tag{white-space:nowrap;font-size:11px;padding:2px 6px;border-radius:4px;background:#14532d;color:#86efac}.tag.m{background:#4a2e05;color:#fcd34d}
+pre{background:#05080e;border:1px solid #1f2a3d;border-radius:10px;padding:14px;overflow:auto;font-size:13px;max-height:600px}
+.add{color:#86efac}.del{color:#fca5a5}.hunk{color:#7cc4ff}.stats{display:flex;gap:14px;flex-wrap:wrap}.stats div{background:#121826;border:1px solid #1f2a3d;border-radius:10px;padding:10px 16px}.stats b{font-size:22px;display:block}
+footer{text-align:center;padding:40px;color:#8a96ab;border-top:1px solid #1f2a3d;margin-top:60px}

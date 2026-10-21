@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DriftPatch: Dependabot for API breaking changes</title>
+<meta name="description" content="DriftPatch scans your code for usages broken by API provider changes and proposes the fix as a patch.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="hero"><nav><b>🩹 DriftPatch</b><span><a href="#how">How it works</a><a href="#scan">Scan</a><a href="#rules">Rules</a><a href="https://www.ycombinator.com/rfs">YC RFS</a></span></nav>
+<h1>Self-maintaining APIs.</h1><p class="lead">When an API provider ships a breaking change, DriftPatch finds every affected line in your codebase and proposes the fix as a ready-to-apply patch. It's Dependabot for APIs.</p>
+<a class="btn" href="#scan">Scan a repo →</a> <a class="btn ghost" href="#" id="demoBtn">Try a demo snippet</a></header>
+<main>
+<section id="how" class="grid3">
+<div><h3>1. Curated breaking changes</h3><p>Each rule is a real change from a public changelog or migration guide, and each one links to its source. Nothing is guessed.</p></div>
+<div><h3>2. Scan in your browser</h3><p>Paste code or point it at a public GitHub repo. Files are fetched straight from GitHub, with no server, no keys and no uploads.</p></div>
+<div><h3>3. Get a patch</h3><p>Every flagged line comes with its source link. Rules that can be fixed mechanically produce a unified diff and a <code>.patch</code> file, or a pull request via the GitHub Action.</p></div>
+</section>
+<section id="scan"><h2>Scan</h2>
+<div class="tabs"><button data-t="repo" class="on">GitHub repo</button><button data-t="paste">Paste code</button></div>
+<div id="t-repo" class="pane"><input id="repo" placeholder="owner/repo  (e.g. zhayujie/bot-on-anything)"><button id="scanRepo" class="btn">Scan repo</button><small>Uses the unauthenticated GitHub API (60 requests/hour) plus raw.githubusercontent.com. Scans up to 150 source files.</small></div>
+<div id="t-paste" class="pane hidden"><input id="fname" value="app.py" placeholder="filename (extension selects rules)"><textarea id="code" rows="12" spellcheck="false" placeholder="Paste code here"></textarea><button id="scanPaste" class="btn">Scan code</button></div>
+<div id="status"></div><div id="summary"></div><div id="results"></div>
+<div id="patchBox" class="hidden"><h3>Proposed patch <button id="dl" class="btn small">Download .patch</button></h3><pre id="diff"></pre></div>
+</section>
+<section id="rules"><h2>Rule packs &amp; sources</h2><div id="ruleList"></div></section>
+</main>
+<footer>Built by <a href="https://x.com/SatoshiDropsHQ" target="_blank" rel="noopener">Satoshi Drops 🪂 @SatoshiDropsHQ</a></footer>
+<script src="rules.js"></script><script src="app.js"></script></body></html>
