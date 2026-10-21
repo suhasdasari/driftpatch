@@ -1,0 +1,30 @@
+# Run DriftPatch against this repo (or any repo given via workflow_dispatch input) and open a PR with the fixes.
+name: DriftPatch
+on:
+  workflow_dispatch:
+    inputs:
+      target_repo: {description: "owner/repo to scan (blank = this repo; PR needs write access to target)", required: false}
+  schedule: [{cron: "0 6 * * 1"}]
+permissions: {contents: write, pull-requests: write}
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: driftpatch}
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.target_repo || github.repository }}
+          path: target
+          token: ${{ secrets.DRIFTPATCH_TOKEN || github.token }}
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node driftpatch/scripts/driftpatch.js target --write
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          path: target
+          token: ${{ secrets.DRIFTPATCH_TOKEN || github.token }}
+          branch: driftpatch/api-migrations
+          title: "DriftPatch: migrate breaking API changes"
+          body-path: driftpatch-report.md
+          commit-message: "fix: migrate usages broken by upstream API changes (DriftPatch)"
